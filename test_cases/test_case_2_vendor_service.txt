@@ -1,0 +1,81 @@
+VENDOR SERVICE AGREEMENT
+
+This Vendor Service Agreement ("Agreement") is made and entered into as of February 1, 2025, by and between:
+
+MegaCorp Industries Inc., a California corporation located at 555 Corporate Blvd, Los Angeles, CA 90001 ("Client")
+
+AND
+
+Premier IT Solutions LLC, a Delaware limited liability company located at 777 Tech Park, Seattle, WA 98101 ("Vendor")
+
+1. SERVICES
+Vendor agrees to provide the following IT support services to Client:
+(a) 24/7 helpdesk support for all employees
+(b) Network infrastructure maintenance and monitoring
+(c) Cloud services management (AWS, Azure, GCP)
+(d) Cybersecurity monitoring and threat detection
+(e) Quarterly system audits and compliance reporting
+
+2. TERM
+This Agreement shall commence on March 1, 2025, and continue for an initial term of two (2) years, ending on February 28, 2027. The Agreement shall automatically renew for additional one-year terms unless either party provides written notice of termination at least 60 days prior to the end of the current term.
+
+3. COMPENSATION
+3.1 Monthly Fee: Client shall pay Vendor a monthly service fee of $18,500.00, payable on the first business day of each month.
+3.2 Additional Services: Any services beyond the scope defined in Section 1 shall be billed at $175.00 per hour.
+3.3 Emergency Support: After-hours emergency support outside of scope shall be billed at $250.00 per hour.
+3.4 Annual Increase: The monthly fee shall increase by 3% annually on each anniversary date.
+
+4. PAYMENT TERMS
+Client shall pay all invoices within thirty (30) days of receipt. Late payments shall accrue interest at 1.5% per month. Vendor reserves the right to suspend services if payment is more than 45 days overdue.
+
+5. SERVICE LEVEL AGREEMENT
+Vendor guarantees 99.5% uptime for critical systems. Response times shall be:
+- Critical issues: 1 hour
+- High priority: 4 hours
+- Medium priority: 24 hours
+- Low priority: 72 hours
+
+Failure to meet these service levels shall result in a 10% credit for that month.
+
+6. CONFIDENTIALITY
+Vendor acknowledges access to Client's proprietary information and agrees to maintain strict confidentiality both during and for three (3) years after termination of this Agreement.
+
+7. LIABILITY AND INDEMNIFICATION
+7.1 Vendor's liability for any claims shall be limited to the amount paid by Client in the six (6) months preceding the claim.
+7.2 Vendor shall indemnify Client against third-party claims arising from Vendor's negligence or breach of this Agreement.
+7.3 Client shall indemnify Vendor against claims arising from Client's misuse of services or violation of applicable laws.
+
+8. INTELLECTUAL PROPERTY
+All pre-existing intellectual property remains the property of its respective owner. Any custom software or solutions developed by Vendor specifically for Client under this Agreement shall be owned by Client upon full payment.
+
+9. TERMINATION
+Either party may terminate this Agreement:
+(a) For cause, immediately upon written notice if the other party materially breaches this Agreement and fails to cure within 30 days
+(b) For convenience, with 90 days' written notice and payment of all fees through the notice period
+(c) Immediately if the other party becomes insolvent or files for bankruptcy
+
+Upon termination, Vendor shall provide reasonable transition assistance for up to 30 days at standard hourly rates.
+
+10. DISPUTE RESOLUTION
+Any disputes shall first be subject to good faith negotiation for 30 days. If unresolved, disputes shall be settled by binding arbitration in Los Angeles, California, under the rules of the American Arbitration Association.
+
+11. INSURANCE
+Vendor shall maintain:
+- Professional liability insurance: $2,000,000
+- General liability insurance: $1,000,000
+- Cyber liability insurance: $5,000,000
+
+Certificates of insurance shall be provided to Client annually.
+
+12. GOVERNING LAW
+This Agreement shall be governed by the laws of the State of California.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement.
+
+CLIENT:                              VENDOR:
+MegaCorp Industries Inc.             Premier IT Solutions LLC
+
+By: ____________________            By: ____________________
+Name: David Thompson                Name: Maria Rodriguez
+Title: CFO                          Title: Managing Partner
+Date: February 1, 2025              Date: February 1, 2025

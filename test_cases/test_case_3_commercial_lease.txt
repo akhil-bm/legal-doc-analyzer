@@ -1,0 +1,85 @@
+COMMERCIAL LEASE AGREEMENT
+
+This Commercial Lease Agreement ("Lease") is entered into as of March 15, 2025, between:
+
+LANDLORD: Prestige Properties Management LLC, a New York limited liability company with offices at 200 Park Avenue, New York, NY 10166 ("Landlord")
+
+TENANT: TechStart Innovations Inc., a Delaware corporation with principal offices at 1500 Broadway, New York, NY 10036 ("Tenant")
+
+PREMISES: Office Suite 3200, located at 450 Fifth Avenue, New York, NY 10118, comprising approximately 4,500 square feet ("Premises")
+
+1. LEASE TERM
+The lease term shall commence on May 1, 2025 ("Commencement Date") and terminate on April 30, 2030 ("Expiration Date"), a period of five (5) years. Tenant shall have the option to renew for two (2) additional five-year terms by providing written notice at least 180 days prior to the Expiration Date.
+
+2. RENT
+2.1 Base Rent: Tenant shall pay annual base rent as follows:
+- Year 1 (May 2025 - April 2026): $225,000.00 ($50.00 per sq ft)
+- Year 2 (May 2026 - April 2027): $236,250.00 (5% increase)
+- Year 3 (May 2027 - April 2028): $248,062.50 (5% increase)
+- Year 4 (May 2028 - April 2029): $260,465.63 (5% increase)
+- Year 5 (May 2029 - April 2030): $273,488.91 (5% increase)
+
+2.2 Payment: Base rent shall be paid in equal monthly installments, in advance, on the first day of each month.
+
+2.3 Late Fee: Rent not received within five (5) days of the due date shall incur a late fee of 5% of the monthly rent.
+
+3. ADDITIONAL CHARGES
+3.1 Security Deposit: Tenant has deposited $37,500.00 (two months' rent) as security, to be held by Landlord and returned within 30 days of lease termination, less any deductions for damages or unpaid rent.
+
+3.2 Operating Expenses: Tenant shall pay its proportionate share (12.5%) of building operating expenses, including property taxes, insurance, common area maintenance, and utilities for common areas. Estimated at $15,000.00 annually.
+
+3.3 Utilities: Tenant shall pay directly for electricity, internet, and telephone services for the Premises.
+
+4. USE OF PREMISES
+Premises shall be used solely for general office purposes, software development, and related business activities. No manufacturing, retail, or residential use is permitted.
+
+5. IMPROVEMENTS AND ALTERATIONS
+5.1 Landlord shall provide a tenant improvement allowance of $67,500.00 ($15.00 per sq ft) for initial build-out.
+5.2 Any alterations exceeding $5,000.00 require Landlord's prior written consent.
+5.3 All improvements become property of Landlord upon lease termination unless otherwise agreed.
+
+6. MAINTENANCE AND REPAIRS
+6.1 Landlord Responsibilities: Structural repairs, roof, exterior walls, building systems (HVAC, electrical, plumbing), elevators, and common areas.
+6.2 Tenant Responsibilities: Interior maintenance, interior painting, carpet cleaning, and repairs to damage caused by Tenant.
+
+7. INSURANCE
+7.1 Landlord shall maintain property insurance on the building.
+7.2 Tenant shall maintain:
+   - Commercial general liability: $2,000,000
+   - Property insurance: Covering Tenant's property and improvements
+   - Business interruption insurance
+7.3 Landlord shall be named as additional insured on all Tenant policies.
+
+8. DEFAULT AND REMEDIES
+Events of Default include:
+(a) Failure to pay rent within 10 days of written notice
+(b) Violation of lease terms not cured within 30 days of written notice
+(c) Bankruptcy or insolvency of Tenant
+(d) Abandonment of Premises
+
+Remedies include lease termination, eviction, and recovery of all amounts due plus legal fees.
+
+9. ASSIGNMENT AND SUBLETTING
+Tenant may not assign this Lease or sublet the Premises without Landlord's prior written consent, which shall not be unreasonably withheld. Any approved sublease does not release Tenant from obligations hereunder.
+
+10. PARKING
+Tenant shall be allocated five (5) reserved parking spaces in the building garage at $400.00 per space per month.
+
+11. HOLDOVER
+If Tenant remains in possession after lease expiration without renewal, rent shall increase to 150% of the then-current base rent on a month-to-month basis.
+
+12. FORCE MAJEURE
+Neither party shall be liable for delays caused by events beyond reasonable control, including natural disasters, war, strikes, or government restrictions.
+
+13. GOVERNING LAW
+This Lease shall be governed by the laws of the State of New York.
+
+IN WITNESS WHEREOF, the parties have executed this Lease Agreement.
+
+LANDLORD:                           TENANT:
+Prestige Properties Management LLC  TechStart Innovations Inc.
+
+By: ____________________           By: ____________________
+Name: Patricia O'Connor            Name: Alexander Kim
+Title: Managing Director           Title: CEO
+Date: March 15, 2025              Date: March 15, 2025

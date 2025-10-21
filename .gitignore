@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual Environment
+venv/
+env/
+ENV/
+
+# Environment Variables (CRITICAL - NEVER COMMIT)
+.env
+*.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# ADK specific
+.adk/
+
+# Test outputs
+*.log
+```
+
+**Save the file (Cmd+S or Ctrl+S)**
+
+---
+
+## ✅ Final Checklist Before Git Init
+
+Your structure should have:
+```
+LEGAL-DOC-ANALYZER/
+├── legal_analyzer/
+│   ├── __init__.py
+│   ├── agent.py
+│   ├── .env              ✅ (your credentials - will be ignored by Git)
+│   └── .env.example      ✅ (template for others)
+├── test_cases/
+│   ├── test_case_1_nda.txt
+│   ├── test_case_2_vendor_service.txt
+│   ├── test_case_3_commercial_lease.txt
+│   ├── test_case_4_partnership.txt
+│   └── test_case_5_software_license.txt
+├── venv/                 ✅ (will be ignored by Git)
+├── .gitignore            ⚠️ **ADD THIS NOW!**
+├── README.md             ✅
+└── requirements.txt      ✅# Initialize Git repository

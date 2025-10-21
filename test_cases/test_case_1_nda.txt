@@ -1,0 +1,52 @@
+NON-DISCLOSURE AGREEMENT
+
+This Non-Disclosure Agreement ("Agreement") is entered into as of January 10, 2025, between:
+
+DataSecure Technologies Ltd. ("Disclosing Party")
+890 Privacy Lane, Boston, MA 02108
+
+AND
+
+CloudVision Solutions Inc. ("Receiving Party")
+123 Innovation Drive, San Francisco, CA 94105
+
+WHEREAS, the parties wish to explore a potential business relationship and will need to disclose certain confidential information to each other.
+
+1. DEFINITION OF CONFIDENTIAL INFORMATION
+"Confidential Information" means any data or information, oral or written, that is proprietary to the Disclosing Party and not generally known to the public, including but not limited to: technical data, trade secrets, know-how, research, product plans, customer lists, financial information, business strategies, and marketing plans.
+
+2. OBLIGATIONS OF RECEIVING PARTY
+The Receiving Party agrees to:
+(a) Hold and maintain the Confidential Information in strict confidence
+(b) Not disclose the Confidential Information to any third parties without prior written consent
+(c) Use the Confidential Information solely for the purpose of evaluating the potential business relationship
+(d) Protect the Confidential Information with the same degree of care used to protect its own confidential information
+
+3. EXCLUSIONS
+This Agreement does not apply to information that:
+(a) Was publicly known at the time of disclosure
+(b) Becomes publicly known through no breach of this Agreement
+(c) Was rightfully in the Receiving Party's possession prior to disclosure
+(d) Is independently developed by the Receiving Party without use of the Confidential Information
+
+4. TERM
+This Agreement shall commence on the date first written above and shall continue for a period of three (3) years.
+
+5. RETURN OF MATERIALS
+Upon termination or at the Disclosing Party's request, the Receiving Party shall promptly return or destroy all Confidential Information and provide written certification of such destruction.
+
+6. NO LICENSE
+Nothing in this Agreement grants any license or rights to the Receiving Party in or to the Confidential Information, except as expressly stated herein.
+
+7. GOVERNING LAW
+This Agreement shall be governed by the laws of the State of Massachusetts.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the date first written above.
+
+DISCLOSING PARTY:                    RECEIVING PARTY:
+DataSecure Technologies Ltd.         CloudVision Solutions Inc.
+
+By: ____________________            By: ____________________
+Name: Robert Martinez               Name: Jennifer Lee
+Title: CEO                          Title: CTO
+Date: January 10, 2025              Date: January 10, 2025
