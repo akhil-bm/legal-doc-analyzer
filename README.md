@@ -278,13 +278,6 @@ Heavy testing:    50+ queries   → May hit limit ⚠️ (wait 5 min)
 - All sensitive data stored in `.env` file
 - Example configuration provided in `.env.example`
 
-## 🤝 Contributing
-
-This project was developed as part of a Google ADK competition. Contributions, issues, and feature requests are welcome!
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 👤 Author
 
@@ -292,11 +285,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - GitHub: [@akhil-bm](https://github.com/akhil-bm)
 - Repository: [legal-doc-analyzer](https://github.com/akhil-bm/legal-doc-analyzer)
 
-## 🙏 Acknowledgments
-
-- Google ADK Team for the amazing framework
-- Vertex AI for powerful AI capabilities
-- Google Cloud Platform for infrastructure
 
 ## 📞 Support
 
@@ -307,5 +295,3 @@ For questions or issues:
 4. Check [Vertex AI Documentation](https://cloud.google.com/vertex-ai/docs)
 
 ---
-
-**Built with ❤️ using Google ADK and Vertex AI**
