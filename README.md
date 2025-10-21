@@ -2,22 +2,25 @@
 
 > A sophisticated multi-agent AI system for analyzing legal contracts and agreements using Google's Agent Development Kit (ADK) and Vertex AI.
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Google ADK](https://img.shields.io/badge/Google-ADK-4285F4?logo=google)](https://google.github.io/adk-docs/)
 
-##  Overview
+## 🌟 Overview
 
 The Legal Document Analyzer is an intelligent, multi-agent system that automatically analyzes legal documents (contracts, NDAs, agreements) and provides comprehensive insights including risk assessment, obligation extraction, financial terms analysis, and actionable recommendations.
 
-###  Key Features
+### ✨ Key Features
 
-- **Multi-Format Support**: Analyze plain text or PDF documents seamlessly
-- **Contract Comparison**: Side-by-side comparison of two contracts with detailed insights
-- **Risk Scoring**: Automated risk assessment on a 1-10 scale with severity levels
-- **Clause Detection**: Identifies 9 types of key clauses (Termination, Liability, Confidentiality, etc.)
-- **Financial Analysis**: Extracts payment terms, amounts, and schedules
-- **Multi-Agent Architecture**: 4 specialized agents working in sequence (Extractor → Identifier → Risk Analyzer → Reporter)
-- **Professional Reports**: Generates structured JSON reports with comprehensive analysis
+- **📄 Multi-Format Support**: Analyze plain text or PDF documents seamlessly
+- **🔄 Contract Comparison**: Side-by-side comparison of two contracts with detailed insights
+- **⚖️ Risk Scoring**: Automated risk assessment on a 1-10 scale with severity levels
+- **🎯 Clause Detection**: Identifies 9 types of key clauses (Termination, Liability, Confidentiality, etc.)
+- **💰 Financial Analysis**: Extracts payment terms, amounts, and schedules
+- **🤖 Multi-Agent Architecture**: 4 specialized agents working in sequence (Extractor → Identifier → Risk Analyzer → Reporter)
+- **📊 Professional Reports**: Generates structured JSON reports with comprehensive analysis
 
-##  Architecture
+## 🏗️ Architecture
 
 The system uses a **sequential multi-agent workflow** with four specialized agents:
 
@@ -46,7 +49,7 @@ Final Analysis Report
 - Dispute resolution
 - Non-compete
 
-##  Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 
@@ -58,42 +61,42 @@ Final Analysis Report
 ### Installation
 
 1. **Clone the repository**
-   
-   git clone https://github.com/yourusername/legal-doc-analyzer.git
+   ```bash
+   git clone https://github.com/akhil-bm/legal-doc-analyzer.git
    cd legal-doc-analyzer
-   
+   ```
 
 2. **Create virtual environment**
-   bash
+   ```bash
    python3 -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
-   
+   ```
 
 3. **Install dependencies**
-   bash
+   ```bash
    pip install -r requirements.txt
-   
+   ```
 
 4. **Set up environment variables**
-   bash
+   ```bash
    cd legal_analyzer
    cp .env.example .env
-   
+   ```
    
    Edit `.env` and add your Google Cloud project details:
-   bash
+   ```bash
    GOOGLE_GENAI_USE_VERTEXAI=true
-   GOOGLE_CLOUD_PROJECT=adk-finops
+   GOOGLE_CLOUD_PROJECT=your-project-id-here
    GOOGLE_CLOUD_LOCATION=us-central1
    MODEL_NAME=gemini-2.0-flash-exp
-   
+   ```
 
 5. **Authenticate with Google Cloud**
-   bash
+   ```bash
    gcloud auth application-default login
-   
+   ```
 
-##  Usage
+## 💻 Usage
 
 ### Single Document Analysis
 
@@ -180,6 +183,87 @@ To test the system:
 3. Try the comparison feature with two different contracts
 4. Test PDF upload functionality
 
+## ⚠️ Rate Limits & Troubleshooting
+
+### Understanding Rate Limits
+
+Vertex AI enforces request rate limits to ensure fair usage and system stability:
+- **Free Tier**: ~60 requests per minute
+- **Standard Tier**: Higher limits available on request
+- **Each GCP project**: Has independent quotas
+
+### Rate Limit Error (429 RESOURCE_EXHAUSTED)
+
+If you encounter this error:
+
+```json
+{"error": "429 RESOURCE_EXHAUSTED"}
+```
+
+**This is normal and temporary!** Here's what it means and how to handle it:
+
+#### Cause
+- You've exceeded the requests-per-minute limit for your GCP project
+- Common during extensive testing or rapid successive queries
+- Rate limits are per-project, not global
+
+#### Solutions
+
+**1. Wait and Retry (Quickest)**
+```bash
+# Wait 5-10 minutes for rate limit to reset
+# Then try your query again
+```
+
+**2. Check Your Quota**
+- Visit [Google Cloud Console → IAM & Admin → Quotas](https://console.cloud.google.com/iam-admin/quotas)
+- Search for "Vertex AI API"
+- View current usage and limits
+
+**3. Request Quota Increase**
+For production use or extensive testing:
+- Go to GCP Console → Quotas
+- Select "Vertex AI API requests per minute"
+- Click "Edit Quotas" and request higher limits
+- Approval typically takes 24-48 hours
+
+**4. Use Alternative Model**
+If you need immediate access, try a different model with separate quotas:
+
+Edit your `.env` file:
+```bash
+MODEL_NAME=gemini-1.5-flash  # Alternative model
+```
+
+### For Reviewers & Testers
+
+**Good news!** If you're testing this agent:
+- ✅ Each GCP project has **independent rate limits**
+- ✅ Fresh projects start with **unused quotas**
+- ✅ Standard testing (5-10 queries) **won't hit limits**
+- ✅ You're using **your own credentials**, not affected by others' usage
+
+**Expected Usage:**
+```
+Light testing:    2-5 queries   → No issues ✅
+Moderate testing: 10-15 queries → No issues ✅
+Heavy testing:    50+ queries   → May hit limit ⚠️ (wait 5 min)
+```
+
+### Best Practices
+
+1. **Space out your queries** - Wait 1-2 seconds between tests
+2. **Use test cases** - Pre-written test cases in `test_cases/` folder
+3. **Monitor usage** - Check GCP Console for quota status
+4. **Plan for production** - Request quota increases before deployment
+
+### Still Having Issues?
+
+- Check [Vertex AI Error Codes](https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429)
+- Verify your GCP credentials: `gcloud auth application-default login`
+- Ensure Vertex AI API is enabled in your project
+- Check project billing status
+
 ## 🛠️ Technologies Used
 
 - **Google ADK** - Agent Development Kit for multi-agent orchestration
@@ -194,8 +278,34 @@ To test the system:
 - All sensitive data stored in `.env` file
 - Example configuration provided in `.env.example`
 
+## 🤝 Contributing
 
+This project was developed as part of a Google ADK competition. Contributions, issues, and feature requests are welcome!
 
+## 📄 License
 
-**Your Name**
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## 👤 Author
+
+**Akhil BM**
 - GitHub: [@akhil-bm](https://github.com/akhil-bm)
+- Repository: [legal-doc-analyzer](https://github.com/akhil-bm/legal-doc-analyzer)
+
+## 🙏 Acknowledgments
+
+- Google ADK Team for the amazing framework
+- Vertex AI for powerful AI capabilities
+- Google Cloud Platform for infrastructure
+
+## 📞 Support
+
+For questions or issues:
+1. Check the troubleshooting section above
+2. Review [Google ADK Documentation](https://google.github.io/adk-docs/)
+3. Open an issue in this repository
+4. Check [Vertex AI Documentation](https://cloud.google.com/vertex-ai/docs)
+
+---
+
+**Built with ❤️ using Google ADK and Vertex AI**
