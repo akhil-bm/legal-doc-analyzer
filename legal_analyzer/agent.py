@@ -727,7 +727,7 @@ def compare_two_documents(document_a_text: str, document_b_text: str) -> str:
 # Agent 1: Document Extractor (Enhanced with PDF Support)
 extractor_agent = Agent(
     name="document_extractor",
-    model="gemini-2.0-flash-exp",
+    model="gemini-2.0-flash",
     description="Extracts and cleans text from legal documents (text or PDF format)",
     instruction="""You are a document extraction specialist with PDF processing capabilities. Your job is to:
     
@@ -746,7 +746,7 @@ You can process both plain text and PDF documents seamlessly.""",
 # Agent 2: Clause Identifier
 identifier_agent = Agent(
     name="clause_identifier",
-    model="gemini-2.0-flash-exp",
+    model="gemini-2.0-flash",
     description="Identifies key clauses, parties, dates, and financial terms",
     instruction="""You are a legal clause identification specialist. Your job is to:
 
@@ -763,7 +763,7 @@ Focus on accurately identifying parties, dates, financial terms, and key clause 
 # Agent 3: Risk Analyzer
 risk_agent = Agent(
     name="risk_analyzer",
-    model="gemini-2.0-flash-exp",
+    model="gemini-2.0-flash",
     description="Analyzes obligations and identifies risks in the document",
     instruction="""You are a legal risk analysis specialist. Your job is to:
 
@@ -780,32 +780,25 @@ Focus on identifying potential risks, obligations, and providing actionable reco
 # Agent 4: Report Generator
 generator_agent = Agent(
     name="report_generator",
-    model="gemini-2.0-flash-exp",
+    model="gemini-2.0-flash",
     description="Generates a comprehensive analysis report",
-    instruction="""You MUST call the generate_analysis_report function.
+    instruction="""You are the FINAL agent in the workflow.
 
-CRITICAL INSTRUCTIONS:
-1. You MUST call the generate_analysis_report function with the risk_result
+1. Call generate_analysis_report with the risk_result
 2. The function returns a complete formatted report
-3. Return EXACTLY what the function returns - do not modify, summarize, or add anything
-4. Do NOT create your own report
-5. Do NOT summarize the output
-6. Return the function output VERBATIM
+3. IMMEDIATELY present the entire report to the user in the main chat
+4. Do NOT just store it - SHOW it to the user
+5. This completes the analysis
 
-The generate_analysis_report function creates a professional 80-character wide report with:
-- Executive summary with risk scores
-- Party obligations breakdown
-- Detailed risk analysis
-- Comprehensive recommendations
-
-Call the function NOW and return its complete output.""",
-    tools=[generate_analysis_report]
+The report is the final deliverable - make sure the user sees it!""",
+    tools=[generate_analysis_report],
+    output_key="final_report"
 )
 
 # Agent 5: Contract Comparison Agent
 comparison_agent = Agent(
     name="contract_comparison_agent",
-    model="gemini-2.0-flash-exp",
+    model="gemini-2.0-flash",
     description="Compares two legal documents side-by-side and generates a comparison report",
     instruction="""You are a contract comparison specialist. 
 
@@ -859,7 +852,7 @@ legal_analysis_workflow = SequentialAgent(
 
 root_agent = Agent(
     name="legal_document_analyzer",
-    model="gemini-2.0-flash-exp",
+    model="gemini-2.0-flash",
     description="Professional legal document analyzer that processes text and PDF documents, extracts key information, identifies risks, and generates comprehensive reports. Also supports comparing two contracts side-by-side.",
     instruction="""You are a professional Legal Document Analyzer assistant with PDF processing and comparison capabilities.
 
