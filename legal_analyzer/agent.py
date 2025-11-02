@@ -22,7 +22,7 @@ load_dotenv()
 
 
 # ============================================================================
-# PDF PROCESSING UTILITIES (Unchanged)
+# PDF PROCESSING UTILITIES 
 # ============================================================================
 
 def extract_text_from_pdf(pdf_content: bytes) -> str:
@@ -41,7 +41,7 @@ def extract_text_from_pdf(pdf_content: bytes) -> str:
 
 
 # ============================================================================
-# DOCUMENT EXTRACTOR TOOL (Unchanged)
+# DOCUMENT EXTRACTOR TOOL 
 # ============================================================================
 
 def extract_document_text(document_text: Optional[str] = None, tool_context: Optional[ToolContext] = None) -> Dict[str, Any]:
@@ -142,7 +142,7 @@ financial_agent = Agent(
     output_key="financial_result"
 )
 
-# Agent 4: Risk Analyst (Unchanged)
+# Agent 4: Risk Analyst 
 risk_agent = Agent(
     name="risk_analyst_agent",
     model="gemini-2.0-flash",
@@ -280,7 +280,7 @@ final_responder_agent = Agent(
 
 
 # ============================================================================
-# SEQUENTIAL WORKFLOW (Unchanged)
+# SEQUENTIAL WORKFLOW 
 # ============================================================================
 
 legal_analysis_workflow = SequentialAgent(
@@ -298,7 +298,7 @@ legal_analysis_workflow = SequentialAgent(
 
 
 # ============================================================================
-# ROOT AGENT (UPDATED)
+# ROOT AGENT 
 # ============================================================================
 
 root_agent = Agent(
@@ -339,7 +339,7 @@ Always be professional, accurate, and helpful.
 
 
 # ============================================================================
-# MAIN ENTRY POINT (Unchanged)
+# MAIN ENTRY POINT 
 # ============================================================================
 
 if __name__ == "__main__":
