@@ -10,44 +10,24 @@
 
 The Legal Document Analyzer is an intelligent, multi-agent system that automatically analyzes legal documents (contracts, NDAs, agreements) and provides comprehensive insights including risk assessment, obligation extraction, financial terms analysis, and actionable recommendations.
 
+This agent uses a "Divide and Conquer" strategy, breaking down the complex task of legal analysis into smaller, manageable steps, allowing a fast and efficient model (`gemini-2.0-flash`) to perform a deep and accurate analysis.
+
 ### ✨ Key Features
 
-- **📄 Multi-Format Support**: Analyze plain text or PDF documents seamlessly
-- **🔄 Contract Comparison**: Side-by-side comparison of two contracts with detailed insights
-- **⚖️ Risk Scoring**: Automated risk assessment on a 1-10 scale with severity levels
-- **🎯 Clause Detection**: Identifies 9 types of key clauses (Termination, Liability, Confidentiality, etc.)
-- **💰 Financial Analysis**: Extracts payment terms, amounts, and schedules
-- **🤖 Multi-Agent Architecture**: 4 specialized agents working in sequence (Extractor → Identifier → Risk Analyzer → Reporter)
-- **📊 Professional Reports**: Generates structured JSON reports with comprehensive analysis
+- **📄 Multi-Format Support**: Analyze plain text or PDF documents seamlessly.
+- **🔄 Contract Comparison**: Side-by-side comparison of two contracts with high-level insights.
+- **⚖️ AI-Powered Risk Scoring**: Automated risk assessment on a 1-10 scale with severity levels.
+- **🎯 AI-Powered Risk Identification**: Identifies potential risks, ambiguous language, and one-sided clauses.
+- **💰 Financial Analysis**: Extracts payment terms, amounts, and schedules.
+- **🤖 Multi-Agent Architecture**: A 5-step sequential workflow for detailed analysis (Extractor → Party → Financial → Risk → Reporter).
+- **📊 Professional Reports**: Generates clean, human-readable Markdown reports.
 
 ## 🏗️ Architecture
 
-The system uses a **sequential multi-agent workflow** with four specialized agents:
+The system uses a **sequential multi-agent workflow** with five specialized agents operating in a "Divide and Conquer" pipeline:
 
-```
-Document Input
-    ↓
-[1] Document Extractor Agent
-    ↓ (parties, dates, obligations, financial terms)
-[2] Clause Identifier Agent  
-    ↓ (9 clause types: termination, liability, confidentiality, etc.)
-[3] Risk Analyzer Agent
-    ↓ (risk score 1-10, severity level, flags)
-[4] Reporter Agent
-    ↓ (final structured report)
-Final Analysis Report
-```
+Document Input (Text or PDF) ↓ [1] Document Extractor Agent ↓ (Cleaned Text) [2] Party Identifier Agent ↓ (Parties JSON) [3] Financial Analyst Agent ↓ (Financials JSON) [4] Risk Analyst Agent ↓ (Risk JSON) [5] Report Generator Agent ↓ (Formatted Markdown Report) Final Analysis Report
 
-### Supported Clause Types
-- Termination clauses
-- Limitation of liability
-- Confidentiality/NDA
-- Intellectual property rights
-- Payment terms
-- Warranties
-- Indemnification
-- Dispute resolution
-- Non-compete
 
 ## 🚀 Getting Started
 
@@ -62,236 +42,238 @@ Final Analysis Report
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/akhil-bm/legal-doc-analyzer.git
+   git clone [https://github.com/akhil-bm/legal-doc-analyzer.git](https://github.com/akhil-bm/legal-doc-analyzer.git)
    cd legal-doc-analyzer
-   ```
+Create virtual environment
 
-2. **Create virtual environment**
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+Bash
 
-3. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+python3 -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+Install dependencies
 
-4. **Set up environment variables**
-   ```bash
-   cd legal_analyzer
-   cp .env.example .env
-   ```
-   
-   Edit `.env` and add your Google Cloud project details:
-   ```bash
-   GOOGLE_GENAI_USE_VERTEXAI=true
-   GOOGLE_CLOUD_PROJECT=your-project-id-here
-   GOOGLE_CLOUD_LOCATION=us-central1
-   MODEL_NAME=gemini-2.0-flash-exp
-   ```
+Bash
 
-5. **Authenticate with Google Cloud**
-   ```bash
-   gcloud auth application-default login
-   ```
+pip install -r requirements.txt
+Set up environment variables
 
-## 💻 Usage
+Bash
 
-### Single Document Analysis
-
-```bash
 cd legal_analyzer
-python agent.py analyze
-```
+cp .env.example .env
+Edit .env and add your Google Cloud project details:
 
-When prompted, choose option 1 and enter your document text or path to PDF file.
+Bash
 
-**Example Output:**
-```json
-{
-  "document_summary": {
-    "parties": ["Company A", "Company B"],
-    "effective_date": "2025-01-01",
-    "contract_type": "Service Agreement"
-  },
-  "risk_assessment": {
-    "overall_risk_score": 6,
-    "severity": "Medium",
-    "flags": ["High liability cap", "Long confidentiality period"]
-  },
-  "clauses_identified": {
-    "Termination": "30 days written notice",
-    "Liability": "$100,000 cap"
-  },
-  "recommendations": [
-    "Review liability cap amount",
-    "Clarify IP ownership terms"
-  ]
-}
-```
+GOOGLE_GENAI_USE_VERTEXAI=true
+GOOGLE_CLOUD_PROJECT=your-project-id-here
+GOOGLE_CLOUD_LOCATION=us-central1
+MODEL_NAME=gemini-2.0-flash
+Authenticate with Google Cloud
 
-### Contract Comparison
+Bash
 
-```bash
-cd legal_analyzer
-python agent.py compare
-```
+gcloud auth application-default login
+💻 Usage
+The primary way to run the agent is through the ADK web interface.
 
-Provide two contracts to compare side-by-side with detailed analysis of differences.
+Start the web server From the legal_analyzer directory (where your agent.py is):
 
-### Test Cases
+Bash
 
+adk web
+Open the interface Open your browser and go to the URL shown in the terminal (usually http://127.0.0.1:8080).
+
+Single Document Analysis
+From the adk web UI, make sure the legal_document_analyzer agent is selected.
+
+You can either:
+
+Paste Text: Copy the text from a test_cases/ file and paste it into the chat box.
+
+Upload PDF: Click the paperclip 📎 icon and upload a PDF file.
+
+Press enter. The agent will run through all 5 steps and present the final, formatted report.
+
+Example Output: (Note: The output is now clean Markdown, not JSON)
+
+📄 LEGAL DOCUMENT ANALYSIS REPORT
+🎯 EXECUTIVE SUMMARY
+Risk Level: Low
+
+Risk Score: 3/10
+
+Analysis Date: 2025-11-02 15:30:00
+
+📋 KEY PARTIES & OBLIGATIONS
+CloudTech Solutions Inc.: Primary obligations include providing services and maintaining confidentiality.
+
+Global Retail Enterprises LLC: Primary obligations include making payments and maintaining confidentiality.
+
+💰 FINANCIAL TERMS
+Total fee of $450,000
+
+$90,000 Initial Deposit
+
+$135,000 Phase 1 Completion
+
+$135,000 Phase 2 Completion
+
+$90,000 Phase 3 & Final Delivery
+
+Payment due 15 business days of invoice
+
+Late payment interest charge of 1.5% per month
+
+⚠️ IDENTIFIED RISKS
+Document includes standard clauses (Liability, Indemnification, etc.) [Low Severity]
+
+Termination for convenience clause requires a long 60-day notice. [Medium Severity]
+
+💡 RECOMMENDATIONS
+Based on the risk score of 3, this document is considered Low risk.
+
+Review the identified risks, especially any missing critical clauses.
+
+Always have legal counsel review contracts before execution.
+
+Disclaimer: This is an automated analysis. Please consult with legal counsel for professional advice before making any decisions.
+
+Contract Comparison
+In the adk web UI, paste your comparison request in the following format:
+
+Compare these contracts:
+
+CONTRACT A:
+[paste first contract text here]
+
+CONTRACT B:
+[paste second contract text here]
+The contract_comparison_agent will be triggered and will return a side-by-side Markdown report.
+
+Test Cases
 The repository includes 5 diverse test cases demonstrating different contract types:
 
-```bash
+Bash
+
 test_cases/
-├── test_case_1_nda.txt                   # Non-Disclosure Agreement
-├── test_case_2_vendor_service.txt        # Vendor Service Agreement
-├── test_case_3_commercial_lease.txt      # Commercial Lease Agreement
-├── test_case_4_partnership.txt           # Partnership Agreement
-└── test_case_5_software_license.txt      # Software License Agreement
-```
-
+├── test_case_1_nda.txt              # Non-Disclosure Agreement
+├── test_case_2_vendor_service.txt   # Vendor Service Agreement
+├── test_case_3_commercial_lease.txt   # Commercial Lease Agreement
+├── test_case_4_partnership.txt        # Partnership Agreement
+└── test_case_5_software_license.txt   # Software License Agreement
 Run any test case:
-```bash
-cat test_cases/test_case_1_nda.txt
-# Copy output and paste when prompted by agent
-```
 
-## 📁 Project Structure
+Bash
 
-```
+# Open any test case file, copy its contents, and paste it into the adk web UI
+📁 Project Structure
 legal-doc-analyzer/
 ├── legal_analyzer/
-│   ├── __init__.py           # Package initialization
-│   ├── agent.py              # Main agent implementation
-│   ├── .env.example          # Environment template
-│   └── .env                  # Your config (not in Git)
-├── test_cases/               # 5 diverse test contracts
-├── requirements.txt          # Python dependencies
-├── .gitignore               # Git exclusions
-└── README.md                # This file
-```
-
-## 🧪 Testing
-
-To test the system:
-
-1. Start with a simple contract (test_case_1_nda.txt)
-2. Progress to more complex agreements
-3. Try the comparison feature with two different contracts
-4. Test PDF upload functionality
-
-## ⚠️ Rate Limits & Troubleshooting
-
-### Understanding Rate Limits
-
+│   ├── __init__.py         # Package initialization
+│   ├── agent.py            # Main agent implementation
+│   ├── .env.example        # Environment template
+│   └── .env                # Your config (not in Git)
+├── test_cases/             # 5 diverse test contracts
+├── requirements.txt        # Python dependencies
+├── .gitignore              # Git exclusions
+└── README.md               # This file
+⚠️ Rate Limits & Troubleshooting
+Understanding Rate Limits
 Vertex AI enforces request rate limits to ensure fair usage and system stability:
-- **Free Tier**: ~60 requests per minute
-- **Standard Tier**: Higher limits available on request
-- **Each GCP project**: Has independent quotas
 
-### Rate Limit Error (429 RESOURCE_EXHAUSTED)
+Free Tier: ~60 requests per minute
 
+Standard Tier: Higher limits available on request
+
+Each GCP project: Has independent quotas
+
+Rate Limit Error (429 RESOURCE_EXHAUSTED)
 If you encounter this error:
 
-```json
+JSON
+
 {"error": "429 RESOURCE_EXHAUSTED"}
-```
+This is normal and temporary! Here's what it means and how to handle it:
 
-**This is normal and temporary!** Here's what it means and how to handle it:
+Cause
+You've exceeded the requests-per-minute limit for your GCP project
 
-#### Cause
-- You've exceeded the requests-per-minute limit for your GCP project
-- Common during extensive testing or rapid successive queries
-- Rate limits are per-project, not global
+Common during extensive testing or rapid successive queries
 
-#### Solutions
+Rate limits are per-project, not global
 
-**1. Wait and Retry (Quickest)**
-```bash
+Solutions
+1. Wait and Retry (Quickest)
+
+Bash
+
 # Wait 5-10 minutes for rate limit to reset
 # Then try your query again
-```
+2. Check Your Quota
 
-**2. Check Your Quota**
-- Visit [Google Cloud Console → IAM & Admin → Quotas](https://console.cloud.google.com/iam-admin/quotas)
-- Search for "Vertex AI API"
-- View current usage and limits
+Visit Google Cloud Console → IAM & Admin → Quotas
 
-**3. Request Quota Increase**
-For production use or extensive testing:
-- Go to GCP Console → Quotas
-- Select "Vertex AI API requests per minute"
-- Click "Edit Quotas" and request higher limits
-- Approval typically takes 24-48 hours
+Search for "Vertex AI API"
 
-**4. Use Alternative Model**
-If you need immediate access, try a different model with separate quotas:
+View current usage and limits
 
-Edit your `.env` file:
-```bash
-MODEL_NAME=gemini-1.5-flash  # Alternative model
-```
+3. Request Quota Increase For production use or extensive testing:
 
-### For Reviewers & Testers
+Go to GCP Console → Quotas
 
-**Good news!** If you're testing this agent:
-- ✅ Each GCP project has **independent rate limits**
-- ✅ Fresh projects start with **unused quotas**
-- ✅ Standard testing (5-10 queries) **won't hit limits**
-- ✅ You're using **your own credentials**, not affected by others' usage
+Select "Vertex AI API requests per minute"
 
-**Expected Usage:**
-```
-Light testing:    2-5 queries   → No issues ✅
-Moderate testing: 10-15 queries → No issues ✅
-Heavy testing:    50+ queries   → May hit limit ⚠️ (wait 5 min)
-```
+Click "Edit Quotas" and request higher limits
 
-### Best Practices
+Approval typically takes 24-48 hours
 
-1. **Space out your queries** - Wait 1-2 seconds between tests
-2. **Use test cases** - Pre-written test cases in `test_cases/` folder
-3. **Monitor usage** - Check GCP Console for quota status
-4. **Plan for production** - Request quota increases before deployment
+For Reviewers & Testers
+Good news! If you're testing this agent:
 
-### Still Having Issues?
+✅ Each GCP project has independent rate limits
 
-- Check [Vertex AI Error Codes](https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429)
-- Verify your GCP credentials: `gcloud auth application-default login`
-- Ensure Vertex AI API is enabled in your project
-- Check project billing status
+✅ Fresh projects start with unused quotas
 
-## 🛠️ Technologies Used
+✅ Standard testing (5-10 queries) won't hit limits
 
-- **Google ADK** - Agent Development Kit for multi-agent orchestration
-- **Vertex AI** - Google's unified AI platform
-- **Gemini 2.0 Flash** - Large language model
-- **Python 3.10+** - Programming language
-- **PyPDF2** - PDF text extraction
+✅ You're using your own credentials, not affected by others' usage
 
-## 🔐 Security & Privacy
+Expected Usage:
 
-- API keys and credentials are never committed to Git (via `.gitignore`)
-- All sensitive data stored in `.env` file
-- Example configuration provided in `.env.example`
+Light testing:     2-5 queries   → No issues ✅
+Moderate testing: 10-15 queries  → No issues ✅
+Heavy testing:     50+ queries   → May hit limit ⚠️ (wait 5 min)
+Still Having Issues?
+Check Vertex AI Error Codes
 
+Verify your GCP credentials: gcloud auth application-default login
 
-## 👤 Author
+Ensure Vertex AI API is enabled in your project
 
-**Akhil BM**
-- GitHub: [@akhil-bm](https://github.com/akhil-bm)
-- Repository: [legal-doc-analyzer](https://github.com/akhil-bm/legal-doc-analyzer)
+Check project billing status
 
+🛠️ Technologies Used
+Google ADK - Agent Development Kit for multi-agent orchestration
 
-## 📞 Support
+Vertex AI - Google's unified AI platform
 
-For questions or issues:
-1. Check the troubleshooting section above
-2. Review [Google ADK Documentation](https://google.github.io/adk-docs/)
-3. Open an issue in this repository
-4. Check [Vertex AI Documentation](https://cloud.google.com/vertex-ai/docs)
+Gemini 2.0 Flash - Large language model
 
----
+Python 3.10+ - Programming language
+
+pypdf - PDF text extraction
+
+🔐 Security & Privacy
+API keys and credentials are never committed to Git (via .gitignore)
+
+All sensitive data stored in .env file
+
+Example configuration provided in .env.example
+
+👤 Author
+Akhil BM
+
+GitHub: @akhil-bm
+
+Repository: legal-doc-analyzer
