@@ -28,7 +28,6 @@ The system uses a **sequential multi-agent workflow** with five specialized agen
 
 Document Input (Text or PDF) ↓ [1] Document Extractor Agent ↓ (Cleaned Text) [2] Party Identifier Agent ↓ (Parties JSON) [3] Financial Analyst Agent ↓ (Financials JSON) [4] Risk Analyst Agent ↓ (Risk JSON) [5] Report Generator Agent ↓ (Formatted Markdown Report) Final Analysis Report
 
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -40,105 +39,99 @@ Document Input (Text or PDF) ↓ [1] Document Extractor Agent ↓ (Cleaned Text)
 
 ### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone [https://github.com/akhil-bm/legal-doc-analyzer.git](https://github.com/akhil-bm/legal-doc-analyzer.git)
-   cd legal-doc-analyzer
-Create virtual environment
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/akhil-bm/legal-doc-analyzer.git
+    cd legal-doc-analyzer
+    ```
 
-Bash
+2.  **Create virtual environment**
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    ```
 
-python3 -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-Install dependencies
+3.  **Install dependencies**
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-Bash
+4.  **Set up environment variables**
+    ```bash
+    cd legal_analyzer
+    cp .env.example .env
+    ```
+    
+    Edit `.env` and add your Google Cloud project details:
+    ```bash
+    GOOGLE_GENAI_USE_VERTEXAI=true
+    GOOGLE_CLOUD_PROJECT=your-project-id-here
+    GOOGLE_CLOUD_LOCATION=us-central1
+    MODEL_NAME=gemini-2.0-flash
+    ```
 
-pip install -r requirements.txt
-Set up environment variables
+5.  **Authenticate with Google Cloud**
+    ```bash
+    gcloud auth application-default login
+    ```
 
-Bash
+## 💻 Usage
 
-cd legal_analyzer
-cp .env.example .env
-Edit .env and add your Google Cloud project details:
-
-Bash
-
-GOOGLE_GENAI_USE_VERTEXAI=true
-GOOGLE_CLOUD_PROJECT=your-project-id-here
-GOOGLE_CLOUD_LOCATION=us-central1
-MODEL_NAME=gemini-2.0-flash
-Authenticate with Google Cloud
-
-Bash
-
-gcloud auth application-default login
-💻 Usage
 The primary way to run the agent is through the ADK web interface.
 
-Start the web server From the legal_analyzer directory (where your agent.py is):
+1.  **Start the web server**
+    From the `legal_analyzer` directory (where your `agent.py` is):
+    ```bash
+    adk web
+    ```
+    
+2.  **Open the interface**
+    Open your browser and go to the URL shown in the terminal (usually `http://127.0.0.1:8080`).
 
-Bash
+### Single Document Analysis
 
-adk web
-Open the interface Open your browser and go to the URL shown in the terminal (usually http://127.0.0.1:8080).
+1.  From the `adk web` UI, make sure the `legal_document_analyzer` agent is selected.
+2.  You can either:
+    * **Paste Text:** Copy the text from a `test_cases/` file and paste it into the chat box.
+    * **Upload PDF:** Click the paperclip 📎 icon and upload a PDF file.
+3.  Press enter. The agent will run through all 5 steps and present the final, formatted report.
 
-Single Document Analysis
-From the adk web UI, make sure the legal_document_analyzer agent is selected.
+**Example Output:**
+(Note: The output is now clean Markdown, not JSON)
 
-You can either:
+```markdown
+## 📄 LEGAL DOCUMENT ANALYSIS REPORT
+---
 
-Paste Text: Copy the text from a test_cases/ file and paste it into the chat box.
+### 🎯 EXECUTIVE SUMMARY
+* **Risk Level:** Low
+* **Risk Score:** 3/10
+* **Analysis Date:** 2025-11-02 15:30:00
 
-Upload PDF: Click the paperclip 📎 icon and upload a PDF file.
+### 📋 KEY PARTIES & OBLIGATIONS
+* **CloudTech Solutions Inc.:** Primary obligations include providing services and maintaining confidentiality.
+* **Global Retail Enterprises LLC:** Primary obligations include making payments and maintaining confidentiality.
 
-Press enter. The agent will run through all 5 steps and present the final, formatted report.
+### 💰 FINANCIAL TERMS
+* Total fee of $450,000
+* $90,000 Initial Deposit
+* $135,000 Phase 1 Completion
+* $135,000 Phase 2 Completion
+* $90,000 Phase 3 & Final Delivery
+* Payment due 15 business days of invoice
+* Late payment interest charge of 1.5% per month
 
-Example Output: (Note: The output is now clean Markdown, not JSON)
+### ⚠️  IDENTIFIED RISKS
+1.  **Document includes standard clauses (Liability, Indemnification, etc.)** [Low Severity]
+2.  **Termination for convenience clause requires a long 60-day notice.** [Medium Severity]
 
-📄 LEGAL DOCUMENT ANALYSIS REPORT
-🎯 EXECUTIVE SUMMARY
-Risk Level: Low
+### 💡 RECOMMENDATIONS
+1.  Based on the risk score of **3**, this document is considered **Low risk**.
+2.  Review the identified risks, especially any missing critical clauses.
+3.  Always have legal counsel review contracts before execution.
 
-Risk Score: 3/10
-
-Analysis Date: 2025-11-02 15:30:00
-
-📋 KEY PARTIES & OBLIGATIONS
-CloudTech Solutions Inc.: Primary obligations include providing services and maintaining confidentiality.
-
-Global Retail Enterprises LLC: Primary obligations include making payments and maintaining confidentiality.
-
-💰 FINANCIAL TERMS
-Total fee of $450,000
-
-$90,000 Initial Deposit
-
-$135,000 Phase 1 Completion
-
-$135,000 Phase 2 Completion
-
-$90,000 Phase 3 & Final Delivery
-
-Payment due 15 business days of invoice
-
-Late payment interest charge of 1.5% per month
-
-⚠️ IDENTIFIED RISKS
-Document includes standard clauses (Liability, Indemnification, etc.) [Low Severity]
-
-Termination for convenience clause requires a long 60-day notice. [Medium Severity]
-
-💡 RECOMMENDATIONS
-Based on the risk score of 3, this document is considered Low risk.
-
-Review the identified risks, especially any missing critical clauses.
-
-Always have legal counsel review contracts before execution.
-
-Disclaimer: This is an automated analysis. Please consult with legal counsel for professional advice before making any decisions.
-
+---
+> **Disclaimer:** This is an automated analysis. Please consult with legal counsel for professional advice before making any decisions.
 Contract Comparison
 In the adk web UI, paste your comparison request in the following format:
 
@@ -153,8 +146,6 @@ The contract_comparison_agent will be triggered and will return a side-by-side M
 
 Test Cases
 The repository includes 5 diverse test cases demonstrating different contract types:
-
-Bash
 
 test_cases/
 ├── test_case_1_nda.txt              # Non-Disclosure Agreement
